@@ -40,6 +40,12 @@ MANIFEST
 *.manifest
 *.spec
 
+# NPZ files
+*.npz
+
+# Video files
+*.mp4
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt

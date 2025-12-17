@@ -12,9 +12,9 @@ from seekcamera import (
 
 width = 320
 height = 240
-recording_seconds = 30
+recording_seconds = 120
 countdown_seconds = 5
-inhale_exhale_duration = 4
+inhale_exhale_duration = 5
 
 # Start with inhaling
 exhale = False

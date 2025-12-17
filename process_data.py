@@ -9,21 +9,10 @@ import math
 
 
 
-folder = "data/data_final/"
-#files = ["left_gale1", "center_gale1", "right_gale1", "waft1", "calm_mouth1", "nose1"]
-#files = ["left_gale2", "center_gale2", "right_gale2", "waft2", "calm_mouth2", "nose2"]
-#files = ["center_gale", "waft", "calm_mouth", "nose"]
-#files = ["directional_gale"]
-#files = ["left_gale1", "right_gale1", "left_gale2", "right_gale2","left_gale3", "right_gale3"]
-#files = ["center_gale1", "center_gale1", "center_gale3", "center_gale4"]
-files = ["center_gale1", "center_gale1", "center_gale3", "center_gale4", "left_gale1", "right_gale1", "left_gale2", "right_gale2","left_gale3", "right_gale3"]#, "directional_gale1", "directional_gale2"]
-
-#files = ["waft1", "waft2", "waft3", "waft4",
-#         "nose1", "nose2", "nose3", "nose4",
-#         "calm_mouth1", "calm_mouth2", "calm_mouth3", "calm_mouth4",
-#         "directional_gale1", "directional_gale2", "center_gale1", "center_gale1", "center_gale3", "center_gale4", "left_gale1", "right_gale1", "left_gale2", "right_gale2","left_gale3", "right_gale3"]
-
-
+#folder = "data/data_final/"
+folder = "./"
+#files = ["center_gale1", "center_gale1", "center_gale3", "center_gale4", "left_gale1", "right_gale1", "left_gale2", "right_gale2","left_gale3", "right_gale3"]#, "directional_gale1", "directional_gale2"]
+files = ["baseline"]
 start_delays = {"gale":np.array([]), "waft":np.array([]), "calm_mouth":np.array([]), "nose":np.array([])}
 end_delays = {"gale":np.array([]), "waft":np.array([]), "calm_mouth":np.array([]), "nose":np.array([])}
 
@@ -148,7 +137,7 @@ WAFT_CONFIDENCE = 0.99
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
 
-interpreter = tf.lite.Interpreter(model_path="model/converted_tflite_stats_start_cued_end_3_classes_50/model_unquant.tflite")
+interpreter = tf.lite.Interpreter(model_path="model/converted_tflite/model_unquant.tflite")
 interpreter.allocate_tensors()
 
 input_details = interpreter.get_input_details()
@@ -471,8 +460,8 @@ for fidx, f in enumerate(files):
         category = 'calm_mouth'
 
 
-    start_delays[category] = np.append(start_delays[category], t_start_indices - t_cue_start_indices)
-    end_delays[category] = np.append(end_delays[category], t_end_indices[:-1] - t_cue_end_indices[:-1])
+    #start_delays[category] = np.append(start_delays[category], t_start_indices - t_cue_start_indices)
+    #end_delays[category] = np.append(end_delays[category], t_end_indices[:-1] - t_cue_end_indices[:-1])
 
 
 
